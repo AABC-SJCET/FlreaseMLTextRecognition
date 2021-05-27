@@ -1,0 +1,35 @@
+name: firebase_ml_text_recognition
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+  # Text recognition
+  firebase_ml_vision: ^0.9.7
+  image_picker: ^0.6.7+11
+  clipboard: ^0.1.2+8
+  path_provider: ^2.0.2
+  flutter_svg: ^0.22.0
+  page_view_indicators: ^2.0.0
+  smooth_page_indicator: ^0.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/undraw_Audio_conversation_re_ptsl.svg
+    - assets/images/undraw_In_progress_re_m1l6.svg
+    - assets/images/undraw_Reading_re_29f8.svg
+fonts:
+  - family: DoHyeon
+    fonts:
+      - asset: assets/fonts/
