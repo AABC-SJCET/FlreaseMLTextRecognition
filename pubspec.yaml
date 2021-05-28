@@ -29,6 +29,8 @@ flutter:
     - assets/images/undraw_Audio_conversation_re_ptsl.svg
     - assets/images/undraw_In_progress_re_m1l6.svg
     - assets/images/undraw_Reading_re_29f8.svg
+    - assets/models/labels                              
+    - assets//models/mnist.tflite
 fonts:
   - family: DoHyeon
     fonts:

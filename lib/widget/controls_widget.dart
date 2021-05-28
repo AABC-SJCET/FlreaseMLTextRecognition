@@ -5,12 +5,14 @@ class ControlsWidget extends StatelessWidget {
   final VoidCallback onClickedScanText;
   final VoidCallback onClickedClear;
   final VoidCallback onClickedClickImage;
+  final VoidCallback onClickedScanNumber;
 
   const ControlsWidget({
     @required this.onClickedPickImage,
     @required this.onClickedScanText,
     @required this.onClickedClear,
     @required this.onClickedClickImage,
+    @required this.onClickedScanNumber,
   });
 
   @override
@@ -28,6 +30,12 @@ class ControlsWidget extends StatelessWidget {
               onPressed: onClickedClickImage,
               icon: Icon(Icons.camera_alt_outlined),
               label: Text('Camera'),
+            ),
+            const SizedBox(width: 12),
+            ElevatedButton.icon(
+              onPressed: onClickedScanNumber,
+              label: Text('Scan for numbers'),
+              icon: Icon(Icons.format_list_numbered),
             ),
             const SizedBox(width: 12),
             ElevatedButton.icon(

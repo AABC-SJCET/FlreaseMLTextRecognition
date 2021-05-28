@@ -5,8 +5,10 @@ import 'package:firebase_ml_text_recognition/api/firebase_ml_api.dart';
 import 'package:firebase_ml_text_recognition/widget/text_area_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:tflite/tflite.dart';
 import 'controls_widget.dart';
+
+import '../style/assetname.dart';
 
 class TextRecognitionWidget extends StatefulWidget {
   const TextRecognitionWidget({
@@ -72,6 +74,31 @@ class _TextRecognitionWidgetState extends State<TextRecognitionWidget> {
     setText(text);
 
     Navigator.of(context).pop();
+  }
+
+  loadDataModelFile() async {
+    String output = await Tflite.loadModel(
+        model: model,
+        labels: label,
+        useGpuDelegate: false,
+        isAsset: true,
+        numThreads: 1);
+  }
+
+  doImageClassification() async {
+    var recognitions = await Tflite.runModelOnImage(
+        path: image.path,
+        imageMean: 0.0,
+        imageStd: 255.0,
+        numResults: 2,
+        threshold: 0.1,
+        asynch: true);
+    recognitions.forEach((recognized_text) {
+      setState(() {
+        print(recognized_text.toString());
+        text = recognized_text['label'];
+      });
+    });
   }
 
   void clear() {
